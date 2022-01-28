@@ -72,11 +72,11 @@ for item in tqdm(train_p):
         y[:,1]=1
     Y.append(y)
     for imgfile in glob('../image_train/{}/{}_*HES*'.format(item[0],item[1])):
-        imghe=np.array(Image.open(imgfile))
+        imghe=np.array(np.load(imgfile))
         imghe=cv2.resize(imghe,(512,512)).reshape((1,512,512,3))
-        imgki=np.array(Image.open(imgfile))
+        imgki=np.array(np.load(imgfile.replace('HES','KI-67')))
         imgki=cv2.resize(imgki,(512,512)).reshape((1,512,512,3))
-        imgphh=np.array(Image.open(imgfile))
+        imgphh=np.array(np.load(imgfile.replace('HES','PHH3')))
         imgphh=cv2.resize(imgphh,(512,512)).reshape((1,512,512,3))
         X.append(np.concatenate([imghe,imgki,imgphh]))
 
@@ -100,11 +100,11 @@ for item in tqdm(test_p):
         y[:,1]=1
     Y.append(y)
     for imgfile in glob('../image_train/{}/{}_*HES*'.format(item[0],item[1])):
-        imghe=np.array(Image.open(imgfile))
+        imghe=np.array(np.load(imgfile))
         imghe=cv2.resize(imghe,(512,512)).reshape((1,512,512,3))
-        imgki=np.array(Image.open(imgfile))
+        imgki=np.array(np.load(imgfile.replace('HES','KI-67')))
         imgki=cv2.resize(imgki,(512,512)).reshape((1,512,512,3))
-        imgphh=np.array(Image.open(imgfile))
+        imgphh=np.array(np.load(imgfile.replace('HES','PHH3')))
         imgphh=cv2.resize(imgphh,(512,512)).reshape((1,512,512,3))
         X.append(np.concatenate([imghe,imgki,imgphh]))
 
