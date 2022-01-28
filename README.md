@@ -32,4 +32,6 @@ SpatialAtten
 
 First run Mask R-CNN for tumor detection and run colorDeconv.py for biomarker detection. The run attenMap.py to generate spatial attention maps. Finally, run train.py on spatial attention equipped images for PCR prediction.
 
+resnet part is referred from https://github.com/raghakot/keras-resnet.git
+
 # Reference
